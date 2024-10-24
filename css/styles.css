@@ -10,7 +10,13 @@ margen y padding: 0px.
 Texto centrado.
 Fuentes:'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
  */
-    
+
+body {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
 /* HEADER
 Estilos de la cabecera:
@@ -19,24 +25,41 @@ Color de fondo blanco
 Tendrá un borde inferior de 1px color #ccc
  */
 
+#header {
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+}
 
 /*La clase center definirá un ancho del 85% y el margen se definirá para que se centre automáticamente*/
 
+.center {
+    width: 85%;
+    margin: 0 auto;
+}
 
 /*La clase clearfix se utiliza para limpiar los elementos flotados */
 
+.clearfix {
+    clear: both;
+}
 
 /* Cumplimenta y añade las propiedades css que necesites para el logo 
   El logo ocupa un 30% del ancho de la cabecera*/
 #logo {
     font-size: 1.5em;
-    margin-top: 20px;
+    margin-top: 0;
+    width: 30%;
+    float: left;
+    display: flex;
+    align-items: center;
 }
 
 /* Cumplimenta y añade las propiedades css que necesites para la imagen del logo */ 
 #logo img {
     height: 60px;
-    margin: 
+    margin: 10px;
 }
 
 #ejemplo {
@@ -46,12 +69,16 @@ Tendrá un borde inferior de 1px color #ccc
 /* MENU:  El menú ocupa un 70% del ancho de la cabecera*/
 
 #menu{
-     font-size: 18px;
+    font-size: 18px;
+    width: 70%;
+    float: right;
+    text-align: right;
 }
 
 #menu ul{
     line-height: 45px;
 }
+
 /*
 Los elementos de la lista del menú: 
 no tendran viñetas
@@ -59,11 +86,27 @@ el alto será de 45px
 los márgenes derecho e izquierdo de 15px
  */
 
+#menu ul li {
+    display: inline-block;
+    margin: 0 15px;
+    height: 45px;
+    line-height: 45px;
+    list-style: none;
+    padding: 0;
+}
  
 /*Los enlaces del menú de navegación no se mostrarán subrayados y el color será #444 */
 
+#menu ul li a {
+    text-decoration: none;
+    color: #444;
+}
 
 /*Cuando se pase el ratón por los enlaces del menú de navegación el color cambiará a #3cb2d3 */
+
+#menu ul li a:hover {
+    color: #3cb2d3;
+}
 
 /* SLIDER. Propiedades:
 color blanco
@@ -73,36 +116,62 @@ El color del fondo será: rgba(73,155,234,1)
 Sombra del texto: sombra horizontal y vertical 0px, blur: 5px, color de la sombra: #444
 */
 
+#slider {
+    color: white;
+    width: 100%;
+    height: 150px;
+    background-color: rgba(73, 155, 234, 1);
+    text-align: center;
+    box-shadow: 0px 0px 5px #444;
+}
+
 /*El texto del slider:
 Margen superior:0px, Espacio entre el contenido y el borde 0px, excepto el superior que es de 60px.
 Texto centrado
 */
 
+#slider h1 {
+    margin: 0;
+    padding: 60px 0 0 0;
+    text-align: center;
+}
+
 /*Cumplimenta #content */
 #content{
-    width: %;     
+    width: 70%;
+    float: left;    
 }
 
 .subheader{
     font-size: 30px;
     border-bottom: 1px solid #eee;
     padding-bottom: 10px;
+    text-align: center;
 }
 
 /* Cumplimenta #sidebar. El margen de la izquierda será de 20px */
 #sidebar{
-    width: 25%; 
+    width: 25%;
+    float: right;
+    margin-left: 20px;
 }
 
 .sidebar-item{
     background: #f7f7f7;
     padding: 20px;
     margin-top: 30px;
+    text-align: center;
 }
 /*El título 3 de la clase sidebar-item:
 Margen de 0px
 Espacio entre el contenido y el borde inferior de 10px,
 El borde inferior se mostrará con un tamaño de 3px y color #eee (observa la línea después del título 3) */
+
+.sidebar-item h3 {
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #eee;
+}
 
 .sidebar-item .btn{
     margin: auto; 
@@ -114,13 +183,16 @@ No tiene bordes
 No aparece subrayado..
 El cursor por defecto de la clase btn será la ?    */
 .btn{
-   display: 
-   background: black; 
+   display: inline-block;
+   background-color: black;
    color: white;
    padding: 15px; 
    font-weight: bold;
    font-size: 14px;
    max-width: 120px;
+   text-decoration: none;
+   cursor: help;
+   border: none;
 }
 /*
 La clase btn-success:
@@ -129,6 +201,7 @@ Cuando se pasa el ratón por encima, el color de fondo del botón será negro
  */
 .btn-success{
     background: rgb(23, 150, 19);
+    cursor: pointer;
 
 }
 
@@ -136,7 +209,7 @@ Cuando se pasa el ratón por encima, el color de fondo del botón será negro
     background:black;
 }
 /* Escribe el selector necesario para que los input de tipo texto tendrán las siguientes propiedades: */
-{
+input[type="text"]{
     width: 100%;
     min-height: 30px;
     border: 1px solid #ccc;
@@ -146,12 +219,18 @@ Cuando se pasa el ratón por encima, el color de fondo del botón será negro
 
 /*Cuando los input de tipo texto tengan el foco, el color de fondo cambiará a: #ee9  */
 
+input[type="text"]:focus {
+    background-color: #ee9;
+}
+
 .article-item{
     /*alinear el texto a la izda */
     width: 100%;
     border-bottom: 1px solid #eee;
     padding-bottom: 20px;
     padding-top: 20px;
+    display: flex;
+    text-align: left;
 }
 
 .article-item .image-wrap {
@@ -160,6 +239,8 @@ Cuando se pasa el ratón por encima, el color de fondo del botón será negro
     height: 80px;
     margin-right: 15px;
     border: 1px solid #ccc;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 .article-item .image-wrap img{
@@ -167,7 +248,7 @@ Cuando se pasa el ratón por encima, el color de fondo del botón será negro
 }
 
 .article-item h2{ /*cumplimenta...*/
-    display: ;
+    display: flex;
     width:100%;
     padding: 0px;
     margin: 0px;
@@ -175,25 +256,29 @@ Cuando se pasa el ratón por encima, el color de fondo del botón será negro
 }
 
 .article-item .date{ /*cumplimenta...*/
-    display: ;
+    display: flex;
     width: 100%;
     color: rgb(122, 122, 122);
 }
 
 .article-item a{ /*cumplimenta... El enlace no aparecerá subrayado*/
-    display: ;
+    display: flex;
     color: #444;
     margin-top: 10px;
+    text-decoration: none;
 }
 /*Cuando se pasé el ratón por encima del enlace de article-item se mostrará subrayado */
 
+.article-item a:hover {
+    text-decoration: underline;
+}
 
-
-#footer{
-    background: #f7f7f7;
+#footer {
+    background-color: #f7f7f7;
     width: 100%;
     height: 70px;
     line-height: 70px;
-    margin-top:20px;
+    text-align: center;
+    margin-top: 20px;
     color: #444;
 }
